@@ -1,33 +1,34 @@
 {
   "project_info": {
-    "project_number": "502444984208",
-    "project_id": "fcm-push-notification-c7b07",
-    "storage_bucket": "fcm-push-notification-c7b07.appspot.com"
+    "project_number": "755371683952",
+    "firebase_url": "https://react-foodordering-app-a95e5-default-rtdb.firebaseio.com",
+    "project_id": "react-foodordering-app-a95e5",
+    "storage_bucket": "react-foodordering-app-a95e5.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:502444984208:android:1d305f2ddfb39a69cd1515",
+        "mobilesdk_app_id": "1:755371683952:android:bbd4dca92dae5e9cd484b5",
         "android_client_info": {
           "package_name": "com.example.fcm_push_notifications"
         }
       },
       "oauth_client": [
         {
-          "client_id": "502444984208-qs9q55aijnpacg0t0s52mg9gs19fhmsu.apps.googleusercontent.com",
+          "client_id": "755371683952-84faosohtq7n7j6rh6dd635fqh2q98vu.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyAZxol7seXYfY8VpEV5oZwfPGmKHqQc3eM"
+          "current_key": "AIzaSyDumSLVDDV01cJ0yX9d0WFZqasr6oIB7CU"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "502444984208-qs9q55aijnpacg0t0s52mg9gs19fhmsu.apps.googleusercontent.com",
+              "client_id": "755371683952-84faosohtq7n7j6rh6dd635fqh2q98vu.apps.googleusercontent.com",
               "client_type": 3
             }
           ]

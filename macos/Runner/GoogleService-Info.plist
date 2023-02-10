@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>755371683952-as1e4auk07qqeqbggi0kdp0rqp56p32e.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.755371683952-as1e4auk07qqeqbggi0kdp0rqp56p32e</string>
+	<key>API_KEY</key>
+	<string>AIzaSyCry7tsJrXS2CWWyLovL4cO_8a4ZIk7ThU</string>
+	<key>GCM_SENDER_ID</key>
+	<string>755371683952</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.example.fcmPushNotifications</string>
+	<key>PROJECT_ID</key>
+	<string>react-foodordering-app-a95e5</string>
+	<key>STORAGE_BUCKET</key>
+	<string>react-foodordering-app-a95e5.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:755371683952:ios:e668add930c17b6fd484b5</string>
+	<key>DATABASE_URL</key>
+	<string>https://react-foodordering-app-a95e5-default-rtdb.firebaseio.com</string>
+</dict>
+</plist>
