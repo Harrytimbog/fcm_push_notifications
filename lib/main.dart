@@ -3,6 +3,7 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:firebase_messaging/firebase_messaging.dart';
 import 'firebase_options.dart';
 
+String? notifTitle, notifBody;
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp(
@@ -38,6 +39,17 @@ class _MyAppState extends State<MyApp> {
     FirebaseMessaging.instance
         .getToken()
         .then((value) => {print("FCM Token Is: "), print(value)});
+    FirebaseMessaging.onMessage.listen((RemoteMessage message) {
+      print('Got a message whilst in the foreground!');
+      print('Message data: ${message.data}');
+      if (message.notification != null) {
+        print('Message also contained a notification: ${message.notification}');
+        setState(() {
+          notifTitle = message.notification!.title;
+          notifBody = message.notification!.body;
+        });
+      }
+    });
   }
 
   @override
@@ -52,14 +64,14 @@ class _MyAppState extends State<MyApp> {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Text(
-                "Notification Title",
+                "${notifTitle != null ? notifTitle : "Notification Title Goes Here"}",
                 style: TextStyle(
                     fontSize: 28,
                     color: Color.fromARGB(255, 79, 79, 79),
                     fontWeight: FontWeight.bold),
               ),
               Text(
-                "Notification Body",
+                "${notifBody != null ? notifBody : "Notification Body Goes Here"}",
                 style: TextStyle(
                     fontSize: 16,
                     color: Color.fromARGB(255, 79, 79, 79),
