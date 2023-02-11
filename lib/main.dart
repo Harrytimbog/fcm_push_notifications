@@ -4,11 +4,20 @@ import 'package:firebase_messaging/firebase_messaging.dart';
 import 'firebase_options.dart';
 
 String? notifTitle, notifBody;
+
+@pragma('vm:entry-point')
+Future<void> _firebaseMessagingBackgroundHandler(RemoteMessage message) async {
+  await Firebase.initializeApp();
+  print("Handling a background message: ${message.messageId}");
+}
+
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
   );
+
+  FirebaseMessaging.onBackgroundMessage(_firebaseMessagingBackgroundHandler);
 
   FirebaseMessaging messaging = FirebaseMessaging.instance;
 
@@ -50,6 +59,18 @@ class _MyAppState extends State<MyApp> {
         });
       }
     });
+
+    FirebaseMessaging.onMessageOpenedApp.listen((RemoteMessage message) {
+      print('Opened a notification');
+      print('Message data: ${message.data}');
+      if (message.notification != null) {
+        print('Message also contained a notification: ${message.notification}');
+        setState(() {
+          notifTitle = message.notification!.title;
+          notifBody = message.notification!.body;
+        });
+      }
+    });
   }
 
   @override
@@ -63,19 +84,25 @@ class _MyAppState extends State<MyApp> {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Text(
-                "${notifTitle != null ? notifTitle : "Notification Title Goes Here"}",
-                style: TextStyle(
-                    fontSize: 28,
-                    color: Color.fromARGB(255, 79, 79, 79),
-                    fontWeight: FontWeight.bold),
+              Padding(
+                padding: const EdgeInsets.all(8),
+                child: Text(
+                  "${notifTitle != null ? notifTitle : "Notification Title Goes Here"}",
+                  style: TextStyle(
+                      fontSize: 28,
+                      color: Color.fromARGB(255, 79, 79, 79),
+                      fontWeight: FontWeight.bold),
+                ),
               ),
-              Text(
-                "${notifBody != null ? notifBody : "Notification Body Goes Here"}",
-                style: TextStyle(
-                    fontSize: 16,
-                    color: Color.fromARGB(255, 79, 79, 79),
-                    fontWeight: FontWeight.bold),
+              Padding(
+                padding: const EdgeInsets.all(16),
+                child: Text(
+                  "${notifBody != null ? notifBody : "Notification Body Goes Here"}",
+                  style: TextStyle(
+                      fontSize: 16,
+                      color: Color.fromARGB(255, 79, 79, 79),
+                      fontWeight: FontWeight.bold),
+                ),
               )
             ],
           ),
